@@ -67,51 +67,43 @@ useEffect(() => {
 
   return (
     <Box
-      position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      translateY={0}
-      transitionProperty="transform"
-      transitionDuration=".3s"
-      transitionTimingFunction="ease-in-out"
-      backgroundColor="#18181b"
-    >
-      <Box color="white" maxWidth="1280px" margin="0 auto">
-        <HStack
-          px={16}
-          py={4}
-          justifyContent="space-between"
-          alignItems="center"
-        >
-         <nav>
-            <HStack spacing={4}>
-              {socials.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FontAwesomeIcon icon={social.icon} size="2x" />
-                </a>
-              ))}
-            </HStack>
-          </nav>
-
-           <nav>
-            <HStack spacing={8}>
-              <a href="/#projects" onClick={handleClick("projects")}>
-                Projects
-              </a>
-              <a href="/#contactme" onClick={handleClick("contactme")}>
-                Contact Me
-              </a>
-            </HStack>
-          </nav>
+  ref={headerRef}
+  position="fixed"
+  top={0}
+  left={0}
+  right={0}
+  transitionProperty="transform"
+  transitionDuration=".3s"
+  transitionTimingFunction="ease-in-out"
+  backgroundColor="#18181b"
+  willChange="transform"
+>
+  <Box color="white" maxWidth="1280px" margin="0 auto">
+    <HStack px={16} py={4} justifyContent="space-between" alignItems="center">
+      <nav>
+        <HStack spacing={4}>
+          {socials.map((social, index) => (
+            <a key={index} href={social.url} target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={social.icon} size="2x" />
+            </a>
+          ))}
         </HStack>
-      </Box>
-    </Box>
+      </nav>
+
+      <nav>
+        <HStack spacing={8}>
+          <a href="/#projects" onClick={handleClick("projects")}>
+            Projects
+          </a>
+          <a href="/#contactme" onClick={handleClick("contactme")}>
+            Contact Me
+          </a>
+        </HStack>
+      </nav>
+    </HStack>
+  </Box>
+</Box>
+
   );
 };
 export default Header;
